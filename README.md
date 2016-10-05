@@ -1,4 +1,3 @@
 # TE Project
 
-Michelle Hwang, Regina Baucom
-(University of Michigan)
+Michelle Hwang, Regina Baucom, **University of Michigan**

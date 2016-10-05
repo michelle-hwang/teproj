@@ -1,0 +1,30 @@
+
+
+Get original ID of all sequences that are COPIA:
+	grep 'COPIA' ANNOTATE_Dodder.fasta | awk -F '[>|#]' '{print $2}'
+
+Get a FASTA file of all sequences that are COPIA:
+	python2.7 get_fasta_seqs.py ANNOTATE_Dodder.fasta -k <(grep 'COPIA' ANNOTATE_Dodder.fasta | awk -F '[>|#]' '{print $2}')
+
+Get a FASTA file of all sequences in a specific MCL family:
+	NUM=6 
+	python2.7 get_fasta_seqs.py ANNOTATE_Dodder.fasta -k <(awk -F '[>|#]' '$6==$NUM {print $2}' ANNOTATE_Dodder.fasta)
+
+Append "SOMETHING" to all FASTA headers:
+	sed 's/>.*/&SOMETHING/' ANNOTATE_Dodder.fasta 
+
+Count how many sequences are in a family: 
+	awk -F '[>|#]' '$6==$NUM {print $2}' ANNOTATE_Dodder.fasta | wc -l	
+
+Count the total number of bases for a multi-FASTA file:
+	grep -v '>' | tr -d " \t\n\r" | wc -m
+
+Get species mappings for all by all MCL
+	cat <(grep '>' Dodder-aaarf-filtered.fa | awk -F '>' '{print $2, "Dodder"}') <(grep '>' mglory-aaarf-filtered.fa | awk -F '>' '{print $2, "mglory"}') <(grep '>' Spot-aaarf-filtered.fa | awk -F '>' '{print $2, "Spot"}') <(grep '>' Tobacco-aaarf-filtered.fa | awk -F '>' '{print $2, "Tobacco"}') <(grep '>' Tomato-aaarf-filtered.fa | awk -F '>' '{print $2, "Tomato"}') > ALL-aaarf-species-mappings.txt 
+
+	cat <(awk '{print $0, "Dodder"}' MCL-Dodder.txt) <(awk '{print $0, "mglory"}' MCL-mglory.txt) <(awk '{print $0, "Spot"}' MCL-Spot.txt) <(awk '{print $0, "Tobacco"}' MCL-Tobacco.txt) <(awk '{print $0, "Tomato"}' MCL-Tomato.txt)
+
+
+
+
+cat <(grep '>' ANNOTATE_Dodder.fasta | awk -F '[#|>]' '{print $2, $5, $6, "Dodder"}') <(grep '>' ANNOTATE_mglory.fasta | awk -F '[#|>]' '{print $2, $5, $6, "mglory"}') <(grep '>' ANNOTATE_Spot.fasta | awk -F '[#|>]' '{print $2, $5, $6, "Spot"}') <(grep '>' ANNOTATE_Tobacco.fasta | awk -F '[#|>]' '{print $2, $5, $6, "Tobacco"}') <(grep '>' ANNOTATE_Tomato.fasta | awk -F '[#|>]' '{print $2, $5, $6, "Tomato"}') > ALL-ANNOTATE-mcl.txt

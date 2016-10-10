@@ -6,31 +6,42 @@ RepeatMasker must be run on the ANNOTATE.fa databases against original raw seque
 
 ## Required
 * Python2
-* numpy, sys, and argparse Python moduels
+* numpy, sys, and argparse Python modules
 * RepeatMasker
 
 ## Input 
 * RepeatMasker outfile
 * FASTA File of sequences
 
+## Output
+Will print to stdout, e.g.:
+```
+BOOTSRAP RESULTS
+Statistic: 0.349015
+95 CI: 0.02349, 0.049801
+Total BP Masked: 6627238
+```
+
 ## Parameters
-_* means required_
+
+#### Optional Parameters
 
 Flag | Default | Description
 --------- | -------- | --------
+n | 10000 | Number of iterations
+a | 0.05 | Significance level
 
-
-### Run with default parameters to estimate repetitiveness of entire genome 
+#### Run with default parameters to estimate repetitiveness of entire genome 
 ```
 python2.7 bootstrap.py ANNOTATE.fa repeatmasker.out
 ```
 
-### Run with default parameters to estimate contribution of COPIA to genome
+#### Run with default parameters to estimate contribution of COPIA to genome
 ```
 python2.7 bootstrap.py <(grep 'COPIA' ANNOTATE.fa | awk '{print $1}') repeatmasker.out
 ```
 
-### Run with default parameters to estimate contribution of MCL family to genome
+#### Run with default parameters to estimate contribution of MCL family to genome
 ```
 NUM=1
 python2.7 bootstrap.py <(grep 'COPIA' ANNOTATE.fa | awk -F '[>|#]' '$6==$NUM {print $0}') repeatmasker.out

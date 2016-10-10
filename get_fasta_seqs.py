@@ -47,12 +47,12 @@ def append(seqiter):
 
 
 def divide():
-	i 		  = 1
+	i 	  = 1
 	label 	  = 10
 	seqs 	  = list()
 	seqiter   = list(seqiter)
-	l 		  = len(seqiter)
-	d		  = int(args.divide)
+	l 	  = len(seqiter)
+	d	  = int(args.divide)
 
 	for seq in seqiter:
 		seqs.append(seq)

@@ -17,19 +17,21 @@ parser = argparse.ArgumentParser(description='''
 		1. With RepeatMasker, first get AAARG ID's for all consensus 
 			sequences in families annotated as COPIA.
 		2. For each read sequence: bp masked/bp of read sequence = percent masked
-		3. Bootstrap 10000 iterations of percent masked
+		3. Bootstrap x iterations of percent masked
 		4. Calculate a 95 CI
 
 	AUTHOR: Michelle Hwang
 ''')
 parser.add_argument('fasta_headers', help='Name of file with FASTA headers.')
 parser.add_argument('repeatmasker', help='Name of RepeatMasker outfile.')
-#parser.add_argument('bp', type=int, help='Total bp of short reads')
+parser.add_argument('-n', type=int, default=10000, help='''Number of iterations.''')
+parser.add_argument('-a', type=float, default=0.05, help='''Significance level.''')
 
 args 		= parser.parse_args()
 fasta_headers 	= args.fasta_headers
 repeatmasker  	= args.repeatmasker
-#total_bp		= args.bp
+n		= args.n
+a		= args.a
 
 headers = open(fasta_headers, 'r')
 RMfile  = open(repeatmasker, 'r')
@@ -109,7 +111,7 @@ def main():
 
 
 	# Bootstrap resample vector of % masked values 
-	(samples, low, high) = bootstrap(np.array(p), 10000, np.mean, 0.05)
+	(samples, low, high) = bootstrap(np.array(p), n, np.mean, a)
 
 	print('BOOTSTRAP RESULTS')
 	print('Statistic: ', np.mean(samples))
@@ -123,14 +125,3 @@ main()
 
 
 
-
-
-
-
-
-
-
-#if left == '(0)':
-#p.append((int(col[6])-int(col[5])+1)/(int(col[6])+1))
-#else:
-#p.append((int(col[6])-int(col[5])+1)/(int(col[6])+1+int(left[1:-1])))

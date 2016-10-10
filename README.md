@@ -1,9 +1,11 @@
 # TE Project
 ### Authors
-Michelle Hwang, Regina Baucom, **University of Michigan**
+Michelle Hwang, Regina Baucom
+</br>**University of Michigan**
+</br>https://sites.lsa.umich.edu/baucom-lab/
 
 ### Latest Update
-July 2016
+October 2016
 
 ## Required Software
 * Python 2

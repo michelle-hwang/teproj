@@ -11,8 +11,8 @@
 
 Contains transposable element databases annotated by "annotate.py" for the following species:
 
-* C. campestris (Dodder)
-* I. purpurea (Morning  glory)
-* N. tabacum (Tobacco)
-* S. batatas (Sweet potato)
-* S. lycopersicum (Tomato)
+* *C. campestris* (Dodder)
+* *I. purpurea* (Morning  glory)
+* *N. tabacum* (Tobacco)
+* *S. batatas* (Sweet potato)
+* *S. lycopersicum* (Tomato)

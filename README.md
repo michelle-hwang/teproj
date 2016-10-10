@@ -38,7 +38,7 @@ Classes | Orders | Superfamilies
 ### Run entire pipeline
 The bash script file includes a method to run the entire pipeline. You will need to provide the following files:
 
-* File of your sequeneced reads in FASTA format.
+* File of your full-length or consensus transposable elements (TE sequences) needing annotation and classification.
 * File of your transposable element database in FASTA format.
 
 The pipeline will run through the following steps:
@@ -66,7 +66,7 @@ The Python annotation script can be run without using the pipeline. One needs, a
 
 * MCL formatted outfile
 * BLAST outfile from custom transposable element database (outfmt=6 + stitle)
-* Fasta file of your sequenced reads
+* Fasta file of your TE sequences
 
 The default parameters:
 

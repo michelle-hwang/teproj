@@ -1,6 +1,7 @@
 # TE Project
 ### Authors
-Michelle Hwang, Regina Baucom
+Michelle Hwang, mchwang@uga.edu
+</br> Regina Baucom, rsbaucom@umich.edu
 </br>**University of Michigan**
 </br>https://sites.lsa.umich.edu/baucom-lab/
 

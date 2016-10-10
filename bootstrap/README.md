@@ -1,6 +1,5 @@
 # Bootstrap Procedure
-
-These scripts were used to conduct bootstrapping statistics to estimate transposable element repetitiveness in the genome after running the transposable element annotation pipeline. The Python script contains the bootstrapping script, while the shell scripts are example submission scripts.
+The Python bootsrap.py were used to conduct bootstrapping statistics to estimate transposable element repetitiveness in the genome after running the transposable element annotation pipeline. 
 
 RepeatMasker must be run on the ANNOTATE.fa databases against original raw sequencing reads (sample of genome) to determine how much of the reads are transposable elements. The amount of bp masked will be used to estimate the % repetitiveness of the read sample. This can be extrapolated to the full genome size. 
 
